@@ -14,6 +14,7 @@ public class main extends JavaPlugin {
 		this.getCommand("tp").setExecutor((commandExecutor)new commandExecutor(this));
 		this.getCommand("sethome").setExecutor((commandExecutor)new commandExecutor(this));
 		this.getCommand("home").setExecutor((commandExecutor)new commandExecutor(this));
+		this.getCommand("friend").setExecutor((commandExecutor)new commandExecutor(this));
 		PluginManager pm = getServer().getPluginManager();
 		Listener listener = new playerDmgListener(this);
 		pm.registerEvents(listener, this);

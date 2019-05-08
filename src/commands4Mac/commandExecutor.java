@@ -53,6 +53,7 @@ public class commandExecutor implements CommandExecutor {
 			p.sendMessage("Your home has been set.");
 			if(!(plugin.getConfig().getString(name +"."+ "sethomes").contains(home))) { //Stop the duplicating in the list when reseting homes.
 				plugin.getConfig().set(name + "." + "sethomes", plugin.getConfig().getString(name +"."+ "sethomes") + "," + home);
+				plugin.saveConfig();
 			}
 			return true;
 		}
