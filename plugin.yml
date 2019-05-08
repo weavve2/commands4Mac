@@ -1,0 +1,22 @@
+ name: commands4Mac
+ version: 1
+ description: This plugin gives players /home and /tp
+ author: crooks
+ api-version: 1.14
+ website: nope
+ main: commands4Mac.main
+ database: false
+ depend: []
+ commands:
+  tp:
+    usage: /<command>
+    aliases: [teleport]
+    description: teleport to players.
+  sethome:
+    usage: /<command>
+    aliases: [sethome]
+    description: set a spawn location
+  home:
+    usage: /<command>
+    aliases: [home]
+    description: teleport to previous set home locations
