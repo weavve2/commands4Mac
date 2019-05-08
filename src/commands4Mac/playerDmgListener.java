@@ -26,7 +26,7 @@ public class playerDmgListener implements Listener{
 				return;
 			}
 		}
-		Player a = (Player) e.getDamager();
+		Player a  = (Player) e.getDamager();
 		String aName = a.getDisplayName();
 		Player p = (Player) e.getEntity();
 		String pName = p.getDisplayName();

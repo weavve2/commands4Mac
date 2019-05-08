@@ -43,6 +43,9 @@ public class commandExecutor implements CommandExecutor {
 			}
 			String name = p.getDisplayName();
 			String home = args[0];
+			if(!(plugin.getConfig().getString(name +"."+ "sethomes").contains(home))) { //Stop the duplicating in the list when reseting homes.
+				plugin.getConfig().set(name + "." + "sethomes", plugin.getConfig().getString(name +"."+ "sethomes") + "," + home);
+			}
 			plugin.getConfig().set(name + "." + home + ".world", p.getLocation().getWorld().getName());
 			plugin.getConfig().set(name + "." + home + ".x", p.getLocation().getX());
 			plugin.getConfig().set(name + "." + home + ".y", p.getLocation().getY());
@@ -51,10 +54,6 @@ public class commandExecutor implements CommandExecutor {
 			plugin.getConfig().set(name + "." + home + ".yaw", p.getLocation().getYaw());
 			plugin.saveConfig();
 			p.sendMessage("Your home has been set.");
-			if(!(plugin.getConfig().getString(name +"."+ "sethomes").contains(home))) { //Stop the duplicating in the list when reseting homes.
-				plugin.getConfig().set(name + "." + "sethomes", plugin.getConfig().getString(name +"."+ "sethomes") + "," + home);
-				plugin.saveConfig();
-			}
 			return true;
 		}
 		if(cmd.getName().equalsIgnoreCase("home")) {
@@ -102,6 +101,7 @@ public class commandExecutor implements CommandExecutor {
 			if(!(friend == null)) {
 				String name = p.getDisplayName();
 				plugin.getConfig().set(name + "." + "friend", friend.getDisplayName());
+				plugin.saveConfig();
 			}
 		}
 		return false;
